@@ -1,0 +1,82 @@
+<div class="mx-auto" style="width: 1000px;">
+  <h1>Ingrese sus datos para registrarlo:</h1>
+  <div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" for="ci">Carnet de Identidad:</span>
+      </div>
+      <input [(ngModel)]="user.ci" type="text" class="form-control" id="ci">  
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" for="nombre">Nombre:</span>
+      </div>
+      <input [(ngModel)]="user.nombre" type="text" class="form-control" id="nombre"> 
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" for="email">Correo Electrónico:</span>
+      </div>
+      <input [(ngModel)]="user.email" type="email" class="form-control" id="email"> 
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" for="nacimiento">Fecha de nacimiento:</span>
+      </div>
+      <input [(ngModel)]="user.nacimiento" type="date" class="form-control" id="nacimiento"> 
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" for="direccion">Dirección de domicilio:</span>
+      </div>
+      <input [(ngModel)]="user.direccion" type="text" class="form-control" id="direccion"> 
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" for="celular">Celular:</span>
+      </div>
+      <input [(ngModel)]="user.celular" type="number" class="form-control" id="celular"> 
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" for="telefono">Teléfono:</span>
+      </div>
+      <input [(ngModel)]="user.telefono" type="number" class="form-control" id="telefono" > 
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Rol</label>
+      </div>
+      <select [(ngModel)]="user.rol" class="custom-select" id="rol">
+        <option selected>Elija el rol que cumplirá...</option>
+        <option value="A">Administrador</option>
+        <option value="B">Doctor en Jefe</option>
+        <option value="C">Encargado de Materiales</option>
+      </select>
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" for="password">Contraseña:</span>
+      </div>
+      <input [(ngModel)]="user.contrasena" type="password" class="form-control" id="contrasena" > 
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" for="password">Confirmar contraseña:</span>
+      </div>
+      <input [(ngModel)]="user.contrasena" type="password" class="form-control" id="contrasena" > 
+    </div>
+
+    <button (click)="registrarUser()" class="btn btn-primary btn-block">Registrar</button>
+
+  </div>
+</div>
