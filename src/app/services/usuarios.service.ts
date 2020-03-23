@@ -6,7 +6,7 @@ import {User} from '../interfaces/user';
   providedIn: 'root'
 })
 export class UsuariosService {
-  API_ENDPOINT= 'http://localhost:8000/api';
+  API_ENDPOINT= 'http://181.188.163.198:8000/api/usuario/crear';
   constructor(private httpClient: HttpClient) { }
 
   /*get(){

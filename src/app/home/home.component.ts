@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   user: User[];
   constructor(private userService: UsuariosService, private httpClient: HttpClient) {
     httpClient.get(url: this.API_ENDPOINT + '/users').subscribe(next: (data:User[]) => {
-      this.user= data;
+      this.user= data; 
     })
    }*/
 
