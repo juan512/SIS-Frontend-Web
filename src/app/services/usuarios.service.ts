@@ -14,6 +14,11 @@ export class UsuariosService {
   }*/
   save(user: User){
     const headers = new HttpHeaders( {'Content-Type': 'application/json'});
+    return this.httpClient.post(this.API_ENDPOINT + '/user/crear', user, {headers: headers});
+  }
+
+  ingresar(user: User){
+    const headers = new HttpHeaders( {'Content-Type': 'application/json'});
     return this.httpClient.post(this.API_ENDPOINT + '/usuario/crear', user, {headers: headers});
   }
 }
