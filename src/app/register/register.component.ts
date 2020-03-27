@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../interfaces/user';
 import{UsuariosService} from '../services/usuarios.service';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +24,19 @@ export class RegisterComponent implements OnInit {
     updated_at: null,
   };
   constructor(private usersService: UsuariosService) { 
-    
+     /* this.user = this.usersService.save(
+      {
+        email: [''],
+        contrasena: null,
+        rol: null,
+        ci:null,
+        nombre:null,
+        nacimiento: null,
+        direccion: null,
+        celular: null,
+        telefono: null,
+      }) */;
+     
   }
 
   ngOnInit() {
