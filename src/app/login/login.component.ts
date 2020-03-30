@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../interfaces/user';
 import { UsuariosService } from '../services/usuarios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
     created_at: null,
     updated_at: null,
   };
-  constructor(private usersService: UsuariosService) { 
+  constructor(private usersService: UsuariosService, private router: Router) { 
     /* this.user = this.usersService.save(
      {
        email: [''],
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
     this.usersService.ingresar(this.user).subscribe((data) => {
       alert ('Inicio con éxito');
       console.log(data);
+      this.router.navigate(['/pacientes']);
     }, (errorServicio) => {
       console.log(errorServicio);
       alert('Ocurrió un error al iniciar sesión');
