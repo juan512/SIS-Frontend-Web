@@ -10,7 +10,7 @@ import {User} from '../interfaces/user'
 })
 export class PacientesComponent implements OnInit {
 
-  API_ENDPOINT= 'http://181.188.163.198/SIS-Backend/app/Http/Controllers/AuthController'
+  API_ENDPOINT= 'http://localhost:8000/api/auth'
   users: User[];
   constructor(private ususuarioService: UsuariosService, private httpClient: HttpClient) {
       httpClient.get(this.API_ENDPOINT + '/getUser').subscribe((data:User[]) => {
