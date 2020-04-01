@@ -10,14 +10,14 @@ import {User} from '../interfaces/user'
 })
 export class PacientesComponent implements OnInit {
 
-  API_ENDPOINT= 'http://localhost:8000/api/auth'
-  users: User[];
+  API_ENDPOINT= 'http://181.188.163.198:8000/api'
+  user: User[];
   constructor(private ususuarioService: UsuariosService, private httpClient: HttpClient) {
-      httpClient.get(this.API_ENDPOINT + '/getUser').subscribe((data:User[]) => {
-        this.users=data;
+      httpClient.get(this.API_ENDPOINT + '/auth/getUser').subscribe((data:User[]) => {
+        this.user=data;
     });
       }
 
       ngOnInit() {
-      }
+      } 
 }

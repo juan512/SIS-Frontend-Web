@@ -10,17 +10,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   user:User={
-    email: null,//
-    contrasena: null,//
-    rol: null,
-    ci:null,
-    nombre:null,
-    nacimiento: null,
-    direccion: null,
-    celular: null,
-    telefono: null,
-    created_at: null,
-    updated_at: null,
+    id: null,
+    name: null,
+    email: null,
+    password: null,
+    id_rol: null,
   };
   constructor(private usersService: UsuariosService, private router: Router) { 
     /* this.user = this.usersService.save(

@@ -6,7 +6,7 @@ import {User} from '../interfaces/user';
   providedIn: 'root'
 })
 export class UsuariosService {
-  API_ENDPOINT= 'http://181.188.163.198/SIS-Backend/public/api'; 
+  API_ENDPOINT= 'http://181.188.163.198:8000/api'; 
   constructor(private httpClient: HttpClient) { }
 
   /*get(){
@@ -19,6 +19,6 @@ export class UsuariosService {
 
   ingresar(user: User){
     const headers = new HttpHeaders( {'Content-Type': 'application/json'});
-    return this.httpClient.post(this.API_ENDPOINT + '/usuario/crear', user, {headers: headers});
+    return this.httpClient.post(this.API_ENDPOINT + '/auth/login', user, {headers: headers});
   }
 }

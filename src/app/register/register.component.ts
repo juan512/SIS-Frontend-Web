@@ -11,17 +11,11 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   user:User={
+    id: null,
+    name: null,
     email: null,
-    contrasena: null,
-    rol: null,
-    ci:null,
-    nombre:null,
-    nacimiento: null,
-    direccion: null,
-    celular: null,
-    telefono: null,
-    created_at: null,
-    updated_at: null,
+    password: null,
+    id_rol: null,
   };
   constructor(private usersService: UsuariosService) { 
      /* this.user = this.usersService.save(
