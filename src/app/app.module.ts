@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { PacientesComponent } from './pacientes/pacientes.component';
 
 const routes: Route[] = [
-  {path: '', component: HomeComponent},
+  {path: '', component: LoginComponent},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},

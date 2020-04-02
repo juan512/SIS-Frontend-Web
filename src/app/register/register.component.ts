@@ -12,10 +12,11 @@ export class RegisterComponent implements OnInit {
 
   user:User={
     //id: null,
-    name: null,
-    email: null,
-    password: null,
-    id_rol: null,
+    'name': null,
+    'email': null,
+    'password': null,
+    'password_confirmation': null,
+    'id_rol': null,
   };
   constructor(private usersService: UsuariosService) { 
      /* this.user = this.usersService.save(
