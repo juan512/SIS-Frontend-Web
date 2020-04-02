@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   user:User={
-    id: null,
+    //id: null,
     name: null,
     email: null,
     password: null,

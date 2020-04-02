@@ -13,12 +13,21 @@ export class UsuariosService {
     return this.httpClient.get(url: this.API_ENDPOINT + '/users')
   }*/
   save(user: User){
-    const headers = new HttpHeaders( {'Content-Type': 'application/json'});
-    return this.httpClient.post(this.API_ENDPOINT + '/user/crear', user, {headers: headers});
+    
+    const headers = new HttpHeaders( {'Content-Type': 'application/json','X-Requested-With':'XMLHttpRequest', 'Authorization': 'Bearer '+localStorage.getItem("token")});
+    console.log(user);
+    console.log(headers);
+    return this.httpClient.post(this.API_ENDPOINT + '/auth/singup', user, {headers: headers});
   }
 
   ingresar(user: User){
     const headers = new HttpHeaders( {'Content-Type': 'application/json'});
     return this.httpClient.post(this.API_ENDPOINT + '/auth/login', user, {headers: headers});
   }
+  /* registrar(user: User){
+    localStorage.getItem("token");
+    const headers = new HttpHeaders( {'Content-Type': 'application/json'});
+    return this.httpClient.post(this.API_ENDPOINT + '/auth/login', user, {headers: headers});
+  } */
+  
 }

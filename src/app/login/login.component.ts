@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   user:User={
-    id: null,
+    //id: null,
     name: null,
     email: null,
     password: null,
@@ -38,8 +38,10 @@ export class LoginComponent implements OnInit {
   ingresarCuenta(){
     this.usersService.ingresar(this.user).subscribe((data) => {
       alert ('Inicio con éxito');
-      console.log(data);
+      console.log(data['access_token']);
       this.router.navigate(['/pacientes']);
+      localStorage.setItem("token",data['access_token']);
+
     }, (errorServicio) => {
       console.log(errorServicio);
       alert('Ocurrió un error al iniciar sesión');
