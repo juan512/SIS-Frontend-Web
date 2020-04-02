@@ -9,15 +9,13 @@ import { HomeComponent } from './home/home.component';
 import {Route, RouterModule} from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { PacientesComponent } from './pacientes/pacientes.component';
-import { LisPacientesComponent } from './lis-pacientes/lis-pacientes.component';
 
 const routes: Route[] = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'pacientes', component: PacientesComponent},
-  {path: 'listadoPacientes', component: LisPacientesComponent},
+  {path: 'pacientes', component: PacientesComponent}
 ];
 
 @NgModule({
@@ -26,8 +24,7 @@ const routes: Route[] = [
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    PacientesComponent,
-    LisPacientesComponent
+    PacientesComponent
   ],
   imports: [
     BrowserModule,
