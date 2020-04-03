@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuariosService } from '../services/usuarios.service';
-import { HttpClient } from '@angular/common/http';
-import {User} from '../interfaces/user'
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { User } from '../interfaces/user';
+
 
 @Component({
   selector: 'app-pacientes',
@@ -10,14 +10,29 @@ import {User} from '../interfaces/user'
 })
 export class PacientesComponent implements OnInit {
 
+  
+public valor;
   API_ENDPOINT= 'http://181.188.163.198:8000/api'
   user: User[];
-  constructor(private ususuarioService: UsuariosService, private httpClient: HttpClient) {
-      httpClient.get(this.API_ENDPOINT + '/auth/getUser').subscribe((data:User[]) => {
-        this.user=data;
-    });
-      }
+  constructor(private httpClient: HttpClient) {
+    
+    this.funciona().subscribe((data) => {
+      console.log(data);
+      console.log(data[0]['name']);
+      this.valor=data;
+    }, error => {
+      console.log(error);
+    
+    });;
 
-      ngOnInit() {
-      } 
+  }
+
+  ngOnInit() {
+  } 
+  funciona(){
+    const headers = new HttpHeaders( {'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
+    return this.httpClient.post(this.API_ENDPOINT + '/userCreator', {}, {headers: headers});
+
+  }
 }
+ 

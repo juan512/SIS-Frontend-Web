@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../interfaces/user';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+
 import{UsuariosService} from '../services/usuarios.service';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -16,9 +19,55 @@ export class RegisterComponent implements OnInit {
     'email': null,
     'password': null,
     'password_confirmation': null,
-    'id_rol': null,
+    'id_rol': '4',
   };
-  constructor(private usersService: UsuariosService) { 
+
+  id: any;
+  editing: boolean = false;
+  public users: User[];
+  public datitos;
+  public route;
+  public estado;
+  API_ENDPOINT= 'http://181.188.163.198:8000/api'
+
+  constructor(private usersService: UsuariosService, private activatedRoute: ActivatedRoute,private httpClient: HttpClient) { 
+
+
+    this.id =this.activatedRoute.snapshot.params['id'];
+    if(this.id>0){
+      this.estado=0;
+    }else{
+      this.estado=1;
+    }
+    console.log(this.id);
+    this.recdat().subscribe((data) => {
+      console.log(data);
+      console.log(data[0]['name']);
+      this.user['name']=data[0]['name'];
+      this.user['email']=data[0]['email'];
+      this.datitos=data;
+    }, error => {
+      console.log(error);
+    
+    });;
+
+    /* this.id = this.activatedRoute.snapshot.params['id'];
+    console.log(this.id);
+    if(this.id){
+      this.editing = true;
+      this.usersService.get().subscribe((data:User[]) => {
+        this.users = data;
+        console.log(this.user);
+        //this.user = this.users.find( (m) => {return m.id == this.id});
+    
+      }, error => {
+          alert(error.error['message']);
+      });
+    }
+
+    else{
+      this.editing=false;
+    } */
      /* this.user = this.usersService.save(
       {
         email: [''],
@@ -30,7 +79,7 @@ export class RegisterComponent implements OnInit {
         direccion: null,
         celular: null,
         telefono: null,
-      }) */;
+      }) ;*/
      
   }
 
@@ -39,12 +88,25 @@ export class RegisterComponent implements OnInit {
 
   registrarUser(){
     this.usersService.save(this.user).subscribe((data) => {
-      alert ('Usuario registrado con éxito');
-      console.log(data);
-    }, (errorServicio) => {
-      console.log(errorServicio);
-      alert('Ocurrió un error al registrar usuario');
+      alert (data['message']);
+    }, error => {
+        alert(error.error['message']);
     });
+  }
+  update(){
+    this.usersService.update(this.id,this.user).subscribe((data) => {
+      alert (data['message']);
+    }, error => {
+        alert(error.error['message']);
+    });
+  }
+
+  
+  recdat(){
+    this.route="/user/"+this.id+"";
+    const headers = new HttpHeaders( {'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
+    return this.httpClient.post(this.API_ENDPOINT + this.route, {}, {headers: headers});
+
   }
 
 } 

@@ -15,6 +15,7 @@ const routes: Route[] = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'register/:id', component: RegisterComponent},
   {path: 'pacientes', component: PacientesComponent}
 ];
 
