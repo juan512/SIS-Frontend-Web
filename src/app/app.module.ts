@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import {Route, RouterModule} from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { PacientesComponent } from './pacientes/pacientes.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Route[] = [
   {path: '', component: LoginComponent},
@@ -16,7 +17,8 @@ const routes: Route[] = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'register/:id', component: RegisterComponent},
-  {path: 'pacientes', component: PacientesComponent}
+  {path: 'pacientes', component: PacientesComponent},
+  {path: 'calendar', component: CalendarComponent}
 ];
 
 @NgModule({
@@ -25,7 +27,8 @@ const routes: Route[] = [
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    PacientesComponent
+    PacientesComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
