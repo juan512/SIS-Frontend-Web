@@ -1,14 +1,35 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, ViewChild,TemplateRef, } from '@angular/core';
 import * as $ from 'jquery';
 import 'fullcalendar';
 import * as moment from 'moment';
+import {
+  startOfDay,
+  endOfDay,
+  subDays,
+  addDays,
+  endOfMonth,
+  isSameDay,
+  isSameMonth,
+  addHours,
+} from 'date-fns';
+import { Subject } from 'rxjs'; 
+import {
+  CalendarEvent,
+  CalendarEventAction,
+  CalendarEventTimesChangedEvent,
+  CalendarView,
+} from 'angular-calendar';
+
 
 @Component({
   selector: 'app-calendar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
+
+
   @Input()
   set configurations(config: any) {
      if(config) {
@@ -19,7 +40,9 @@ export class CalendarComponent implements OnInit {
 
 defaultConfigurations: any;
 
+
 constructor() {
+  
 
   this.eventData = [
     {
@@ -31,10 +54,12 @@ constructor() {
        start: moment(),
        end: moment().add(2, 'days')
     },
+    
 ];
 
     this.defaultConfigurations = {
-      
+      plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
+      selectable: true,
     editable: true,
         eventLimit: true,
         titleFormat: 'MMM D YYYY',
@@ -51,9 +76,9 @@ constructor() {
         },
         buttonIcons:{
           prev: 'left-single-arrow',
-  next: 'right-single-arrow',
-  prevYear: 'left-double-arrow',
-  nextYear: 'right-double-arrow'
+          next: 'right-single-arrow',
+          prevYear: 'left-double-arrow',
+          nextYear: 'right-double-arrow'
         },
         views: {
             agenda: {
@@ -64,9 +89,10 @@ constructor() {
         slotDuration: moment.duration('00:15:00'),
         slotLabelInterval: moment.duration('01:00:00'),
         firstDay: 1,
-        selectable: true,
         selectHelper: true,
         events: this.eventData,
+        
+        
       
         dayClick: (date, jsEvent, activeView) => { 
           this.dayClick (date, jsEvent, activeView); 
@@ -89,7 +115,7 @@ constructor() {
 }
 
 dayClick (date, jsEvent, activeView) {
-  console.log ('día clic'); 
+  alert('clicked ' + jsEvent);
 } 
 eventDragStart (timeSheetEntry, jsEvent, ui, activeView) { 
   console.log ('evento arrastre inicio'); 
@@ -97,10 +123,14 @@ eventDragStart (timeSheetEntry, jsEvent, ui, activeView) {
 eventDragStop (timeSheetEntry, jsEvent, ui, activeView) { 
   console.log ('evento de arrastre final'); 
 }
+
 ngOnInit() {
   $('#full-calendar').fullCalendar(
            this.defaultConfigurations
+           
         );
      
      }
     }
+
+   
