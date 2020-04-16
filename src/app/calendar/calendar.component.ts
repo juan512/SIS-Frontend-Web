@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, ViewChild,TemplateRef, } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, ViewChild, TemplateRef, } from '@angular/core';
 import * as $ from 'jquery';
 import 'fullcalendar';
 import * as moment from 'moment';
@@ -12,7 +12,7 @@ import {
   isSameMonth,
   addHours,
 } from 'date-fns';
-import { Subject } from 'rxjs'; 
+import { Subject } from 'rxjs';
 import {
   CalendarEvent,
   CalendarEventAction,
@@ -26,15 +26,15 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css'],
-  //template: 'bootstrap',
+  /*template:'bootstrap',*/
 })
 export class CalendarComponent implements OnInit {
 
 
   @Input()
   set configurations(config: any) {
-     if(config) {
-        this.defaultConfigurations = config;  
+     if (config) {
+        this.defaultConfigurations = config;
      }
   }
 @Input() eventData: any;
@@ -43,7 +43,7 @@ defaultConfigurations: any;
 
 
 constructor() {
-  
+
 
   this.eventData = [
     {
@@ -55,11 +55,11 @@ constructor() {
        start: moment(),
        end: moment().add(2, 'days')
     },
-    
+
 ];
 
     this.defaultConfigurations = {
-      plugins: [ 'interaction', 'dayGrid', 'timeGrid','calendarPlugins' ],
+      plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'calendarPlugins' ],
       selectable: true,
     editable: true,
         eventLimit: true,
@@ -75,7 +75,7 @@ constructor() {
             week: 'Semana',
             day: 'Día'
         },
-        buttonIcons:{
+        buttonIcons: {
           prev: 'left-single-arrow',
           next: 'right-single-arrow',
           prevYear: 'left-double-arrow',
@@ -92,46 +92,45 @@ constructor() {
         firstDay: 1,
         selectHelper: true,
         events: this.eventData,
-        
-        
-      
-        dayClick: (date, jsEvent, activeView) => { 
-          this.dayClick (date, jsEvent, activeView); 
-       }, 
-       
-       eventDragStart: (timeSheetEntry, jsEvent, ui, activeView) => { 
-          this.eventDragStart ( 
-              timeSheetEntry, jsEvent, ui, activeView 
-          ); 
-       }, 
- eventDragStop: (timeSheetEntry, jsEvent, ui, activeView) => { 
-          this.eventDragStop ( 
-             timeSheetEntry, jsEvent, ui, activeView 
-          ); 
+
+
+
+        dayClick: (date, jsEvent, activeView) => {
+          this.dayClick (date, jsEvent, activeView);
        },
-      
+
+       eventDragStart: (timeSheetEntry, jsEvent, ui, activeView) => {
+          this.eventDragStart (
+              timeSheetEntry, jsEvent, ui, activeView
+          );
+       },
+ eventDragStop: (timeSheetEntry, jsEvent, ui, activeView) => {
+          this.eventDragStop (
+             timeSheetEntry, jsEvent, ui, activeView
+          );
+       },
+
       };
 
-      
+
 }
 
 dayClick (date, jsEvent, activeView) {
   alert('clicked ' + jsEvent);
-} 
-eventDragStart (timeSheetEntry, jsEvent, ui, activeView) { 
-  console.log ('evento arrastre inicio'); 
-} 
-eventDragStop (timeSheetEntry, jsEvent, ui, activeView) { 
-  console.log ('evento de arrastre final'); 
+}
+eventDragStart (timeSheetEntry, jsEvent, ui, activeView) {
+  console.log ('evento arrastre inicio');
+}
+eventDragStop (timeSheetEntry, jsEvent, ui, activeView) {
+  console.log ('evento de arrastre final');
 }
 
 ngOnInit() {
   $('#full-calendar').fullCalendar(
            this.defaultConfigurations,
-           
-        );
-     
-     }
-    }
 
-   
+        );
+
+     }
+}
+

@@ -13,6 +13,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CirugiasComponent } from './cirugias/cirugias.component';
 
 const routes: Route[] = [
   {path: '', component: LoginComponent},
@@ -31,7 +32,8 @@ const routes: Route[] = [
     RegisterComponent,
     HomeComponent,
     PacientesComponent,
-    CalendarComponent
+    CalendarComponent,
+    CirugiasComponent
   ],
   imports: [
     BrowserModule,
