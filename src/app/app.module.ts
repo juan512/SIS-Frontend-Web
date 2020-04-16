@@ -10,6 +10,9 @@ import {Route, RouterModule} from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { PacientesComponent } from './pacientes/pacientes.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 const routes: Route[] = [
   {path: '', component: LoginComponent},
@@ -35,7 +38,12 @@ const routes: Route[] = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
     //NgbModule.forRoot(),
     //NgbModule
   ],

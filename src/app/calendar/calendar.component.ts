@@ -25,7 +25,8 @@ import {
   selector: 'app-calendar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css']
+  styleUrls: ['./calendar.component.css'],
+  //template: 'bootstrap',
 })
 export class CalendarComponent implements OnInit {
 
@@ -58,7 +59,7 @@ constructor() {
 ];
 
     this.defaultConfigurations = {
-      plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
+      plugins: [ 'interaction', 'dayGrid', 'timeGrid','calendarPlugins' ],
       selectable: true,
     editable: true,
         eventLimit: true,
@@ -126,7 +127,7 @@ eventDragStop (timeSheetEntry, jsEvent, ui, activeView) {
 
 ngOnInit() {
   $('#full-calendar').fullCalendar(
-           this.defaultConfigurations
+           this.defaultConfigurations,
            
         );
      
