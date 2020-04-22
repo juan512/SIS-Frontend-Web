@@ -9,7 +9,7 @@
     </div>
     <div class="col-6">
       <div >
-          <a class="nav-link" routerLink="/pacientes" tabindex="-1" aria-disabled="true">
+          <a class="nav-link" routerLink="/cirugias" tabindex="-1" aria-disabled="true">
             <button class="btn btn-info btn-block">Nueva Cirugía</button>
           </a>
         
@@ -18,19 +18,19 @@
       <table class = "table table-bordered table-striped">
         <thead class = "thead-dark">
           <tr >
-            <th scope="col" class="text-center">Id</th>
-            <th scope="col" class="text-center">Email</th>
-            <th scope="col" class="text-center">Nombre</th>
+            <th scope="col" class="text-center">Paciente</th>
+            <th scope="col" class="text-center">Fecha de Cirugía</th>
+            <th scope="col" class="text-center">Fecha de Cirugía</th>
             <th scope="col" class="text-center">Acción</th>
           </tr>
         </thead>
     
         <tbody>
            <tr *ngFor="let valors of">
-            <td class="text-center">{{valors.id}}</td>
-            <th class="text-center">{{valors.email}}</th>
-            <th class="text-center">{{valors.name}}</th>
-            <td class="text-center"><a class="btn btn-info btn-sm" routerLink="/register/{{valors.id}}">Ver-Editar</a></td>
+            <td class="text-center">{{valors.id_paciente}}</td>
+            <th class="text-center">{{valors.fechaIngreso}}</th>
+            <th class="text-center">{{valors.fechaSalida}}</th>
+            <td class="text-center"><a class="btn btn-info btn-sm" routerLink="/cirugias/{{valors.id_paciente}}">Ver-Editar</a></td>
            </tr>
         </tbody>
     

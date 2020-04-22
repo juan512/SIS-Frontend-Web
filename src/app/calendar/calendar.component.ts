@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy, ViewChild, TemplateRef, } from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import * as $ from 'jquery';
 import 'fullcalendar';
 import * as moment from 'moment';
@@ -19,6 +20,7 @@ import {
   CalendarEventTimesChangedEvent,
   CalendarView,
 } from 'angular-calendar';
+import { Cirugia } from '../interfaces/cirugia';
 
 
 @Component({
@@ -41,14 +43,26 @@ export class CalendarComponent implements OnInit {
 
 defaultConfigurations: any;
 
+public valor;
+  API_ENDPOINT= 'http://177.222.52.26:8000/api'
+  cirugia: Cirugia[];
 
-constructor() {
+
+constructor(private httpClient: HttpClient) {
+  this.mostrar_cirugias().subscribe((data) => {
+    console.log(data);
+    console.log(data[0]['name']);
+    this.valor=data;
+  }, error => {
+    console.log(error);
+  
+  });; 
 
 
   this.eventData = [
     {
        title: 'event1',
-       start: moment()
+       start: moment("20200410", "YYYYMMDD")
     },
     {
        title: 'event2',
@@ -63,7 +77,7 @@ constructor() {
       selectable: true,
     editable: true,
         eventLimit: true,
-        titleFormat: 'MMM D YYYY',
+        titleFormat: 'MMMM YYYY',
         header: {
             left: 'prev,next today',
             center: 'title',
@@ -132,5 +146,11 @@ ngOnInit() {
         );
 
      }
+
+  mostrar_cirugias(){
+  const headers = new HttpHeaders( {'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
+  return this.httpClient.post(this.API_ENDPOINT + '/userCreator', {}, {headers: headers});
+
+  }
 }
 

@@ -12,7 +12,7 @@ export class PacientesComponent implements OnInit {
 
   
 public valor;
-  API_ENDPOINT= 'http://181.188.163.198:8000/api'
+  API_ENDPOINT= 'http://177.222.52.26:8000/api'
   user: User[];
   constructor(private httpClient: HttpClient) {
     
@@ -23,7 +23,7 @@ public valor;
     }, error => {
       console.log(error);
     
-    });;
+    });; 
 
   }
 

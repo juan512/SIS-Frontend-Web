@@ -22,7 +22,8 @@ const routes: Route[] = [
   {path: 'register', component: RegisterComponent},
   {path: 'register/:id', component: RegisterComponent},
   {path: 'pacientes', component: PacientesComponent},
-  {path: 'calendar', component: CalendarComponent}
+  {path: 'calendar', component: CalendarComponent},
+  {path: 'cirugias', component: CirugiasComponent}
 ];
 
 @NgModule({

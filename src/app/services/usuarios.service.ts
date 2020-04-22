@@ -6,7 +6,7 @@ import {User} from '../interfaces/user';
   providedIn: 'root'
 })
 export class UsuariosService {
-  API_ENDPOINT= 'http://181.188.163.198:8000/api'; 
+  API_ENDPOINT= 'http://177.222.52.26:8000/api'; 
   constructor(private httpClient: HttpClient) { }
   get(){
     const headers = new HttpHeaders( {'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
@@ -16,7 +16,7 @@ export class UsuariosService {
     const headers = new HttpHeaders( {'Content-Type': 'application/json','X-Requested-With':'XMLHttpRequest', 'Authorization': 'Bearer '+localStorage.getItem("token")});
     console.log(user);
     console.log(headers);
-    return this.httpClient.post('http://181.188.163.198:8000/api/auth/signup', user, {headers: headers});
+    return this.httpClient.post('http://177.222.52.26:8000/api/auth/signup', user, {headers: headers});
   }
 
   ingresar(user: User){

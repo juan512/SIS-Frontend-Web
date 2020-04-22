@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   public datitos;
   public route;
   public estado;
-  API_ENDPOINT= 'http://181.188.163.198:8000/api'
+  API_ENDPOINT= 'http://177.222.52.26:8000/api'
 
   constructor(private usersService: UsuariosService, private activatedRoute: ActivatedRoute,private httpClient: HttpClient) { 
 
@@ -92,7 +92,7 @@ export class RegisterComponent implements OnInit {
     }, error => {
         alert(error.error['message']);
     });
-  }
+  } 
   update(){
     this.usersService.update(this.id,this.user).subscribe((data) => {
       alert (data['message']);
