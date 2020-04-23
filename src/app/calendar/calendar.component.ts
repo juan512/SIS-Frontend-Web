@@ -25,7 +25,6 @@ import { Cirugia } from '../interfaces/cirugia';
 
 @Component({
   selector: 'app-calendar',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css'],
   /*template:'bootstrap',*/
@@ -49,23 +48,28 @@ public valor;
 
 
 constructor(private httpClient: HttpClient) {
+  
   this.mostrar_cirugias().subscribe((data) => {
     console.log(data);
-    console.log(data[0]['name']);
+    console.log(data[0]['id_paciente']);
     this.valor=data;
+    console.log(this.valor);
+
   }, error => {
     console.log(error);
   
   });; 
 
 
-  this.eventData = [
+  this.eventData = /* 'http://177.222.52.26:8000/api/cirugia/getCirugias' */[
     {
-       title: 'event1',
+       //title: this.valor[0],
        start: moment("20200410", "YYYYMMDD")
+      // start: this.valor.fechaIngreso
     },
     {
        title: 'event2',
+       //start: moment("20200410", "YYYYMMDD")
        start: moment(),
        end: moment().add(2, 'days')
     },
@@ -110,8 +114,10 @@ constructor(private httpClient: HttpClient) {
 
 
         dayClick: (date, jsEvent, activeView) => {
-          this.dayClick (date, jsEvent, activeView);
+          alert("Día "+date.format());
+
        },
+       
 
        eventDragStart: (timeSheetEntry, jsEvent, ui, activeView) => {
           this.eventDragStart (
@@ -130,7 +136,7 @@ constructor(private httpClient: HttpClient) {
 }
 
 dayClick (date, jsEvent, activeView) {
-  alert('clicked ' + jsEvent);
+  alert('clicked ' + date.format());
 }
 eventDragStart (timeSheetEntry, jsEvent, ui, activeView) {
   console.log ('evento arrastre inicio');
@@ -139,17 +145,18 @@ eventDragStop (timeSheetEntry, jsEvent, ui, activeView) {
   console.log ('evento de arrastre final');
 }
 
+
 ngOnInit() {
   $('#full-calendar').fullCalendar(
            this.defaultConfigurations,
 
         );
 
-     }
+}
 
   mostrar_cirugias(){
   const headers = new HttpHeaders( {'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
-  return this.httpClient.post(this.API_ENDPOINT + '/userCreator', {}, {headers: headers});
+  return this.httpClient.post(this.API_ENDPOINT + '/cirugia/getCirugias', {}, {headers: headers});
 
   }
 }

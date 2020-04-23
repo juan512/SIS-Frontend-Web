@@ -40,7 +40,7 @@ export class CirugiasComponent implements OnInit {
     console.log(this.id_paciente);
     this.recdat().subscribe((data) => {
       console.log(data);
-      console.log(data[0]['name']);
+      //console.log(data[0]['name']);
       this.cirugia['name']=data[0]['name'];
       this.cirugia['email']=data[0]['email'];
       this.datitos=data;

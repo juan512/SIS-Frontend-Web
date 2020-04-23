@@ -15,6 +15,8 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CirugiasComponent } from './cirugias/cirugias.component';
 
+
+
 const routes: Route[] = [
   {path: '', component: LoginComponent},
   {path: 'home', component: HomeComponent},
