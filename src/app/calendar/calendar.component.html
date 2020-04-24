@@ -2,63 +2,66 @@
 <div class="mx-auto" style="width: 1480px;">
   <div class="row">
     <div class="col-6">
-        <div id="full-calendar">
-
+      <div class="card border-info mb-3">
+        <div class="card-header">
+          <div class="h5">Mis Calendario</div>
+          
         </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <div class="h6">
+              <div id="full-calendar"></div>
+            </div> 
+          </blockquote>
+        </div>
+      </div>
+        
       
     </div>
     <div class="col-6">
-      <div >
-          <a class="nav-link" routerLink="/cirugias" tabindex="-1" aria-disabled="true">
-            <button class="btn btn-info btn-block">Nueva Cirugía</button>
-          </a>
-        
-        <br>
+
+      <div class="card border-info mb-3">
+        <div class="card-header">
+          <div class="h5">Mis Cirugías</div>
+          
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <div class="h6">
+              <div class="h3">
+                <a class="btn btn-info btn-sm" routerLink="/cirugias">Nueva Cirugía</a>
+              </div>
+            
+              <table class = "table table-bordered table-striped">
+                <thead class = "thead-dark">
+                  <tr>
+                    <th scope="col" class="text-center">Paciente</th>
+                    <th scope="col" class="text-center">Fecha de Cirugía</th>
+                    <th scope="col" class="text-center">Fecha de Cirugía</th>
+                    <th scope="col" class="text-center">Acción</th>
+                  </tr>
+                </thead>
+            
+                <tbody>
+                  <tr *ngFor="let valors of valor">
+                    <td class="text-center">{{valors.id_paciente}}</td>
+                    <th class="text-center">{{valors.fechaIngreso}}</th>
+                    <th class="text-center">{{valors.fechaSalida}}</th>
+                    <td class="text-center"><a class="btn btn-info btn-sm" routerLink="/cirugias/{{valors.id_paciente}}">Ver-Editar</a></td>
+                  </tr>
+                </tbody>
+            
+              </table>
+              
+
+            </div> 
+          </blockquote>
+        </div>
       </div>
       
-        <table class = "table table-bordered table-striped">
-          <thead class = "thead-dark">
-            <tr>
-              <th scope="col" class="text-center">Paciente</th>
-              <th scope="col" class="text-center">Fecha de Cirugía</th>
-              <th scope="col" class="text-center">Fecha de Cirugía</th>
-              <th scope="col" class="text-center">Acción</th>
-            </tr>
-          </thead>
       
-          <tbody>
-            <tr *ngFor="let valors of valor">
-              <td class="text-center">{{valors.id_paciente}}</td>
-              <th class="text-center">{{valors.fechaIngreso}}</th>
-              <th class="text-center">{{valors.fechaSalida}}</th>
-              <td class="text-center"><a class="btn btn-info btn-sm" routerLink="/cirugias/{{valors.id_paciente}}">Ver-Editar</a></td>
-            </tr>
-          </tbody>
-      
-        </table>
-        
     </div>
   </div>
 </div>
 
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
   

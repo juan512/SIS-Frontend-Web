@@ -23,6 +23,11 @@ export class UsuariosService {
     const headers = new HttpHeaders( {'Content-Type': 'application/json'});
     return this.httpClient.post(this.API_ENDPOINT + '/auth/login', user, {headers: headers});
   }
+  
+  /* cerrar(user: User){
+    const headers = new HttpHeaders( {'Content-Type': 'application/json'});
+    return this.httpClient.post(this.API_ENDPOINT + '/auth/logout', user, {headers: headers});
+  }  */
   mostrar(user: User){
     const headers = new HttpHeaders( {'Content-Type': 'application/json','X-Requested-With':'XMLHttpRequest', 'Authorization': 'Bearer '+localStorage.getItem("token")});
     return this.httpClient.post(this.API_ENDPOINT + '/userCreator', user, {headers: headers});

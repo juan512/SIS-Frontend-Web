@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CirugiasComponent } from './cirugias/cirugias.component';
+import { SalasComponent } from './salas/salas.component';
+import { NuevasalaComponent } from './nuevasala/nuevasala.component';
 
 
 
@@ -25,7 +27,9 @@ const routes: Route[] = [
   {path: 'register/:id', component: RegisterComponent},
   {path: 'pacientes', component: PacientesComponent},
   {path: 'calendar', component: CalendarComponent},
-  {path: 'cirugias', component: CirugiasComponent}
+  {path: 'cirugias', component: CirugiasComponent},
+  {path: 'salas', component: SalasComponent},
+  {path: 'nuevasala', component: NuevasalaComponent}
 ];
 
 @NgModule({
@@ -36,7 +40,9 @@ const routes: Route[] = [
     HomeComponent,
     PacientesComponent,
     CalendarComponent,
-    CirugiasComponent
+    CirugiasComponent,
+    SalasComponent,
+    NuevasalaComponent
   ],
   imports: [
     BrowserModule,
