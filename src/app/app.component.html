@@ -1,7 +1,6 @@
 <!-- <app-full-calendar></app-full-calendar> -->
 
 <link rel="shortcut icon" href="favicon.ico" />
-  
     <nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #adcee6;">
       <a class="navbar-brand" >Sistema de Cirugías</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +60,7 @@
                 <a *ngIf="valor.id<54" class="nav-link" routerLink="/login">Iniciar Sesión {{valor.name}}</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" routerLink="cerrarCuenta()" >Cerrar Sesión</a>
+                  <a *ngIf="valor.id>0" class="nav-link" routerLink="cerrarCuenta()" >Cerrar Sesión</a>
               </li>
             </ul>
         </div>

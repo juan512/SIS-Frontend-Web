@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
 
     }, (errorServicio) => {
       console.log(errorServicio);
+      this.router.navigate(['']);
       alert('Ocurrió un error al iniciar sesión');
     });
   }

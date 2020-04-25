@@ -45,13 +45,19 @@ defaultConfigurations: any;
 public valor;
   API_ENDPOINT= 'http://177.222.52.26:8000/api'
   cirugia: Cirugia[];
-
+ mateo="";
+res;
 
 constructor(private httpClient: HttpClient) {
   
+
   this.mostrar_cirugias().subscribe((data) => {
-    console.log(data);
-    console.log(data[0]['id_paciente']);
+    this.mateo = data[3]['fechaIngreso'].split("");
+    this.mateo=this.mateo[0]+this.mateo[1]+this.mateo[2]+this.mateo[3]+this.mateo[5]+this.mateo[6]+this.mateo[8]+this.mateo[9];
+    
+    console.log("prueba"+this.mateo);
+    
+    //console.log(data[0]['id_paciente']);
     this.valor=data;
     console.log(this.valor);
 
@@ -59,22 +65,12 @@ constructor(private httpClient: HttpClient) {
     console.log(error);
   
   });; 
-
-
-  this.eventData = /* 'http://177.222.52.26:8000/api/cirugia/getCirugias' */[
+  this.eventData = [
     {
-       //title: this.valor[0],
-       start: moment("20200410", "YYYYMMDD")
-      // start: this.valor.fechaIngreso
-    },
-    {
-       title: 'event2',
-       //start: moment("20200410", "YYYYMMDD")
-       start: moment(),
-       end: moment().add(2, 'days')
-    },
-
-];
+       title: this.mateo+"sdaaaa",
+       //start: moment(this.mateo, "YYYYMMDD")
+       start: moment("20200415", "YYYYMMDD"),
+    }];
 
     this.defaultConfigurations = {
       plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'calendarPlugins' ],
@@ -131,7 +127,7 @@ constructor(private httpClient: HttpClient) {
        },
 
       };
-
+      
 
 }
 
@@ -147,17 +143,41 @@ eventDragStop (timeSheetEntry, jsEvent, ui, activeView) {
 
 
 ngOnInit() {
+/*
   $('#full-calendar').fullCalendar(
+
            this.defaultConfigurations,
 
-        );
+        );*/
 
+}
+boton(){
+  console.log("asd");
+  $('#full-calendar').fullCalendar(
+
+    this.defaultConfigurations,
+
+ );
 }
 
   mostrar_cirugias(){
-  const headers = new HttpHeaders( {'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
-  return this.httpClient.post(this.API_ENDPOINT + '/cirugia/getCirugias', {}, {headers: headers});
+  //const headers = new HttpHeaders( {'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
+  return this.httpClient.get(this.API_ENDPOINT + '/cirugia/getCirugias');
 
   }
+}
+
+function eventos(mateo){
+  
+
+  console.log("prueba2"+mateo);
+
+  var eventData = [
+    {
+       title: mateo+"asd",
+       //start: moment(this.mateo, "YYYYMMDD")
+       start: moment("20200415", "YYYYMMDD"),
+    }];
+  return eventData;
 }
 
