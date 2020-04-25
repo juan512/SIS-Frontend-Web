@@ -10,395 +10,71 @@
     <div class="card-body">
       <blockquote class="blockquote mb-0">
         <div class="h6">
-          <h5>Datos del paciente:</h5>
-      
-      <div class="form-row">
+          <h5>Datos la cirugía:</h5>
+          
+          <div class="form-row">
 
-        <div class="col">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">Paciente</div>
-            </div>
-            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-              <option selected>Selecciona a tu paciente:</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">Doctor</div>
-            </div>
-            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Nombre del doctor">
-          </div>
-        </div>
-
-      </div>
-      <div class="form-row">
-
-        <div class="col">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">Correo electrónico para enviar información relacionada a la cirugía</div>
-            </div>
-            <input [(ngModel)]="cirgia.email_notif" type="email" class="form-control" id="inlineFormInputGroup">
-          </div>
-        </div>
-
-      </div>
-
-      <br>
-      <h5>Datos de la cirugía:</h5>
-
-      <div class="form-row">
-
-        <div class="col">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">Fecha y hora de inicio de cirugía</div>
-            </div>
-            <input [(ngModel)]="cirgia.fechaIngreso" type="datetime-local" class="form-control" id="inlineFormInputGroup">
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">Fecha y hora de fin de cirugía</div>
-            </div>
-            <input [(ngModel)]="cirgia.fechaSalida" type="datetime-local" class="form-control" id="inlineFormInputGroup">
-          </div>
-        </div>
-
-      </div>
-
-      <div class="form-row">
-
-        <div class="col">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">Fecha y hora de internación</div>
-            </div>
-            <input [(ngModel)]="cirgia.fechaInternacion" type="datetime-local" class="form-control" id="inlineFormInputGroup">
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">Fecha y hora de salida</div>
-            </div>
-            <input [(ngModel)]="cirgia.fechaInternacion_salida" type="datetime-local" class="form-control" id="inlineFormInputGroup">
-          </div>
-        </div>
-
-      </div>
-      <h6>Tomar en cuenta que los horarios de salida serán aproximados, posteriormente se podrán editar en caso de inconvenientes</h6>
-      <br>
-      <!-- <div class="form-row">
-
-        <div class="col">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">Hora de cirugía</div>
-            </div>
-            <input type="time" class="form-control" id="inlineFormInputGroup">
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">Hora de internación</div>
-            </div>
-            <input type="time" class="form-control" id="inlineFormInputGroup">
-          </div>
-        </div>
-
-      </div> -->
-
-      <div class="form-row">
-
-        <div class="col">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">Sala de cirugía</div>
-            </div>
-            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-              <option selected>Selecciona la sala que deseas reservar:</option>
-              <option value="1">Sala 1</option>
-              <option value="2">Sala 2</option>
-              <option value="3">Sala 3</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-row">
-
-        <div class="col">
-          <div class="input-group mb-2">
-            <div class="input-group-prepend">
-              <div class="input-group-text">Observaciones</div>
-            </div>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">
-
-            </textarea>
-          </div>
-        </div>
-      </div>
-
-      <br>
-     <!--  <h5>Material requerido:</h5>
-
-      <div class="form-row">
-
-        <div class="col">
-          <div class="form-group row">
-            <div class="col-sm-2">Checkbox</div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
+            <div class="col">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">Paciente</div>
+                </div>
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                  <option selected>Selecciona la sala que deseas reservar:</option>
+                  <option  *ngFor="let pacientes of pacientes" value={{pacientes.id}}>{{pacientes.name}}</option>
+                </select>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col">
-          <div class="form-group row">
-            <div class="col-sm-2">Checkbox</div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
+            <div class="col">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">Sala de cirugía</div>
+                </div>
+
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                  <option selected>Selecciona la sala que deseas reservar:</option>
+
+                
+
+                  <option  *ngFor="let salas of salas" value={{salas.id}}>{{salas.nombre}}</option>
+                </select>
               </div>
             </div>
+
           </div>
-        </div>
-      </div>
 
-      <div class="form-row">
+         
+          <div class="form-row">
 
-        <div class="col">
-          <div class="form-group row">
-            <div class="col-sm-2">Checkbox</div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
+            <div class="col">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">Fecha y hora de la cirugía</div>
+                </div>
+                <input  type="datetime-local" class="form-control" id="inlineFormInputGroup">
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col">
-          <div class="form-group row">
-            <div class="col-sm-2">Checkbox</div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
+            <div class="col">
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">Fecha y hora de fin de la cirugía</div>
+                </div>
+                <input  type="datetime-local" class="form-control" id="inlineFormInputGroup">
               </div>
             </div>
+
           </div>
-        </div>
-      </div>
+          <h6>Tomar en cuenta que los horarios de salida serán aproximados, posteriormente se podrán editar en caso de inconvenientes</h6>
+          <br>
 
-      <div class="form-row">
+          <div class="text-center">
+            <button  *ngIf="id>0" (click)="update()" class="btn btn-info">Guardar</button>
+            <button *ngIf="estado==1" (click)="registrarUser()" class="btn btn-info">Registrar</button>
 
-        <div class="col">
-          <div class="form-group row">
-            <div class="col-sm-2">Checkbox</div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-              </div>
-            </div>
           </div>
-        </div>
-
-        <div class="col">
-          <div class="form-group row">
-            <div class="col-sm-2">Checkbox</div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <br>
-      <h5>Personal requerido:</h5>
-
-      <div class="form-row">
-
-        <div class="col">
-          <div class="form-group row">
-            <div class="col-sm-2">Checkbox</div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="form-group row">
-            <div class="col-sm-2">Checkbox</div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-row">
-
-        <div class="col">
-          <div class="form-group row">
-            <div class="col-sm-2">Checkbox</div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="form-group row">
-            <div class="col-sm-2">Checkbox</div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label><br>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <div class="text-center">
-        <button  (click)="update()" class="btn btn-info">Guardar</button>
-        <button *ngIf="estado==1" (click)="registrarUser()" class="btn btn-info">Registrar</button>
-
-      </div>
-      <br>
+          <br>
         </div>
         
         <footer class="blockquote-footer">Sistema de Cirugías<cite title="Source Title"> -Hospital de Mateo y Narda</cite></footer>

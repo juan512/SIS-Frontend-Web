@@ -15,14 +15,16 @@
             <div class="input-group-prepend">
               <span class="input-group-text" for="nombre">Nombre:</span>
             </div>
-            <input [(ngModel)]="sala.nombre" type="text" class="form-control" id="name" ngModel #val2="ngModel" >  
+            <input *ngIf="id>0" [(ngModel)]="sala_e.nombre" type="text" class="form-control"> 
+            <input *ngIf="estado==1" [(ngModel)]="sala.nombre" type="text" class="form-control">  
           </div>
     
-          <div *ngIf="estado==1" class="input-group mb-3">
+          <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" for="email">Descripción:</span>
             </div>
-            <input [(ngModel)]="sala.descripcion" type="text" class="form-control" id="descipcion"> 
+            <input *ngIf="id>0" [(ngModel)]="sala_e.descripcion" type="text" class="form-control"> 
+            <input *ngIf="estado==1" [(ngModel)]="sala.descripcion" type="text" class="form-control">  
           </div>
     
           <div class="text-center">

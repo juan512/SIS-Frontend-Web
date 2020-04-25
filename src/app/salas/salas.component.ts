@@ -16,7 +16,6 @@ export class SalasComponent implements OnInit {
     
     this.funciona().subscribe((data) => {
       console.log(data);
-      console.log(data[0]['name']);
       this.valor=data;
     }, error => {
       console.log(error);

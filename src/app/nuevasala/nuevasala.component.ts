@@ -17,8 +17,13 @@ export class NuevasalaComponent implements OnInit {
     'nombre':null,
     'descripcion':null,
   };
+  sala_e:Sala={
+    'id':null,
+    'nombre':null,
+    'descripcion':null,
+  };
 
-  id_paciente: any;
+  id: any;
   editing: boolean = false;
   public cirugias: Cirugia[];
   public datitos;
@@ -27,23 +32,24 @@ export class NuevasalaComponent implements OnInit {
   API_ENDPOINT= 'http://177.222.52.26:8000/api'
 
   constructor(private salasService: SalasService, private activatedRoute: ActivatedRoute,private httpClient: HttpClient) {
-    this.id_paciente =this.activatedRoute.snapshot.params['id_paciente'];
-    if(this.id_paciente>0){
+    this.id =this.activatedRoute.snapshot.params['id'];
+    if(this.id>0){
       this.estado=0;
-    }else{
-      this.estado=1;
-    }
-    console.log(this.id_paciente);
+      console.log(this.id);
     this.recdat().subscribe((data) => {
       console.log(data);
       //console.log(data[0]['name']);
-      this.sala['nombre']=data[0]['nombre'];
-      this.sala['descripcion']=data[0]['descripcion'];
+      this.sala_e['nombre']=data[0]['nombre'];
+      this.sala_e['descripcion']=data[0]['descripcion'];
       this.datitos=data;
     }, error => {
       console.log(error);
     
     });;
+    }else{
+      this.estado=1;
+    }
+    
    }
 
   ngOnInit() {
@@ -58,7 +64,7 @@ export class NuevasalaComponent implements OnInit {
   }
 
   update(){
-    this.salasService.update(this.id_paciente,this.sala).subscribe((data) => {
+    this.salasService.update(this.id,this.sala).subscribe((data) => {
       alert (data['message']);
     }, error => {
         alert(error.error['message']);
@@ -67,7 +73,7 @@ export class NuevasalaComponent implements OnInit {
 
   
   recdat(){
-    this.route="/cirugia/"+this.id_paciente+"";
+    this.route="/sala/"+this.id+"";
     const headers = new HttpHeaders( {'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
     return this.httpClient.post(this.API_ENDPOINT + this.route, {}, {headers: headers});
 

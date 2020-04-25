@@ -49,6 +49,8 @@ public valor;
 res;
 
 constructor(private httpClient: HttpClient) {
+
+ 
   
 
   this.mostrar_cirugias().subscribe((data) => {
@@ -165,6 +167,9 @@ boton(){
   return this.httpClient.get(this.API_ENDPOINT + '/cirugia/getCirugias');
 
   }
+
+
+  
 }
 
 function eventos(mateo){
@@ -180,4 +185,6 @@ function eventos(mateo){
     }];
   return eventData;
 }
+
+
 

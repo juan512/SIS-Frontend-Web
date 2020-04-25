@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
     user: User[];
     constructor(private usersService: UsuariosService, private activatedRoute: ActivatedRoute,private httpClient: HttpClient) {
 
-      //this.rol =this.activatedRoute.snapshot.params['id_rol'];
+      /* this.rol =this.activatedRoute.snapshot.params['id_rol'];
       this.nombre =this.activatedRoute.snapshot.params['name[0]'];
       this.id =this.activatedRoute.snapshot.params['id[0]'];
       console.log("info: "+this.rol);
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
       }else{
         this.estado=1;
       }
-
+ */
       
 
       this.funciona().subscribe((data) => {
