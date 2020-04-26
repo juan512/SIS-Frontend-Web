@@ -18,8 +18,8 @@ public valor;
     
     this.funciona().subscribe((data) => {
       console.log(data);
-      console.log(data[0]['name']);
       this.valor=data;
+      console.log(length);
     }, error => {
       console.log(error);
     

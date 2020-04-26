@@ -10,7 +10,7 @@
         <div class="card-body">
           <blockquote class="blockquote mb-0">
             <div class="h6">
-              <div id="full-calendar"></div>
+              <div id="full-calendar" load="boton()"></div>
             </div> 
           </blockquote>
         </div>
@@ -35,6 +35,7 @@
               <table class = "table table-bordered table-striped">
                 <thead class = "thead-dark">
                   <tr>
+                    <th scope="col" class="text-center">Id</th>
                     <th scope="col" class="text-center">Paciente</th>
                     <th scope="col" class="text-center">Fecha de Cirugía</th>
                     <th scope="col" class="text-center">Fecha de Cirugía</th>
@@ -44,10 +45,11 @@
             
                 <tbody>
                   <tr *ngFor="let valors of valor">
+                    <td class="text-center">{{valors.id}}</td>
                     <td class="text-center">{{valors.id_paciente}}</td>
                     <th class="text-center">{{valors.fechaIngreso}}</th>
                     <th class="text-center">{{valors.fechaSalida}}</th>
-                    <td class="text-center"><a class="btn btn-info btn-sm" routerLink="/cirugias/{{valors.id_paciente}}">Ver-Editar</a></td>
+                    <td class="text-center"><a class="btn btn-info btn-sm" routerLink="/cirugias/{{valors.id}}">Ver-Editar</a></td>
                   </tr>
                 </tbody>
             

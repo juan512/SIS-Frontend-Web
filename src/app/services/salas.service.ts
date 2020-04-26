@@ -18,10 +18,10 @@ export class SalasService {
     return this.httpClient.post('http://177.222.52.26:8000/api/sala', sala, {headers: headers});
   }
 
-  update(id,sala){
-    console.log(sala);
+  update(id,sala_e){
+    console.log(sala_e);
     const headers = new HttpHeaders( {'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
-    return this.httpClient.put(this.API_ENDPOINT + '/sala/'+id, sala, {headers: headers});
+    return this.httpClient.put(this.API_ENDPOINT + '/sala/'+id, sala_e, {headers: headers});
 
   }
 }

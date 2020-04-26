@@ -1,5 +1,5 @@
 export interface Cirugia{
-    //'id':string; //title
+    'id':string; //title
     'id_paciente':string; 
 	'id_sala':string;
 	'fechaIngreso':string;//start

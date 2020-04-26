@@ -32,10 +32,10 @@ export class UsuariosService {
     const headers = new HttpHeaders( {'Content-Type': 'application/json','X-Requested-With':'XMLHttpRequest', 'Authorization': 'Bearer '+localStorage.getItem("token")});
     return this.httpClient.post(this.API_ENDPOINT + '/userCreator', user, {headers: headers});
   } 
-  update(id,user){
-    console.log(user);
+  update(id,user_e){
+    console.log(user_e);
     const headers = new HttpHeaders( {'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
-    return this.httpClient.put(this.API_ENDPOINT + '/user/'+id, user, {headers: headers});
+    return this.httpClient.put(this.API_ENDPOINT + '/user/'+id, user_e, {headers: headers});
 
   }
   

@@ -13,6 +13,7 @@ import { CirugiasService } from '../services/cirugias.service';
 export class CirugiasComponent implements OnInit {
 
   cirugia:Cirugia={
+    'id':null, 
     'id_paciente':null,
     'id_sala':null,
     'fechaIngreso':null,
@@ -22,7 +23,18 @@ export class CirugiasComponent implements OnInit {
     'email_notif':null,
   };
 
-  id_paciente: any;
+  cirugia_e:Cirugia={
+    'id':null,
+    'id_paciente':null,
+    'id_sala':null,
+    'fechaIngreso':null,
+    'fechaSalida':null,
+    'fechaInternacion':null,
+    'fechaInternacion_salida':null,
+    'email_notif':null,
+  };
+
+  id: any;
   editing: boolean = false;
   public cirugias: Cirugia[];
   public datitos;
@@ -52,23 +64,25 @@ export class CirugiasComponent implements OnInit {
     
     });;  
 
-    this.id_paciente =this.activatedRoute.snapshot.params['id_paciente'];
-    if(this.id_paciente>0){
+    this.id =this.activatedRoute.snapshot.params['id'];
+    if(this.id>0){
       this.estado=0;
-    }else{
-      this.estado=1;
-    }
-    console.log(this.id_paciente); 
+      console.log(this.id); 
     this.recdat().subscribe((data) => {
       console.log(data);
-      //console.log(data[0]['name']);
-      /* this.cirugia['name']=data[0]['name'];
-      this.cirugia['email']=data[0]['email']; */
+      this.cirugia_e['id_paciente']=data[0]['id_paciente'];
+      this.cirugia_e['id_sala']=data[0]['id_sala'];
+      this.cirugia_e['fechaIngreso']=data[0]['fechaIngreso'];
+      this.cirugia_e['fechaSalida']=data[0]['fechaSalida'];
       this.datitos=data;
     }, error => {
       console.log(error);
     
     });;
+    }else{
+      this.estado=1;
+    }
+    
    }
 
   ngOnInit() {
@@ -84,7 +98,7 @@ export class CirugiasComponent implements OnInit {
   }
 
   update(){
-    this.cirugiasService.update(this.id_paciente,this.cirugia).subscribe((data) => {
+    this.cirugiasService.update(this.id,this.cirugia_e).subscribe((data) => {
       alert (data['message']);
     }, error => {
         alert(error.error['message']);
@@ -93,7 +107,7 @@ export class CirugiasComponent implements OnInit {
 
   
   recdat(){
-    this.route="/cirugia/"+this.id_paciente+"";
+    this.route="/cirugia/"+this.id+"";
     const headers = new HttpHeaders( {'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
     return this.httpClient.post(this.API_ENDPOINT + this.route, {}, {headers: headers});
 

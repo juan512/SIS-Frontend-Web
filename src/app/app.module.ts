@@ -28,6 +28,7 @@ const routes: Route[] = [
   {path: 'pacientes', component: PacientesComponent},
   {path: 'calendar', component: CalendarComponent},
   {path: 'cirugias', component: CirugiasComponent},
+  {path: 'cirugias/:id', component: CirugiasComponent},
   {path: 'salas', component: SalasComponent},
   {path: 'nuevasala/:id', component: NuevasalaComponent}
 ];

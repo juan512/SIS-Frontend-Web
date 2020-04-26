@@ -10,23 +10,32 @@ import { Cirugia } from '../interfaces/cirugia';
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css'],
+  
   /*template:'bootstrap',*/
 })
 export class CalendarComponent {
 
   API_ENDPOINT = 'http://177.222.52.26:8000/api'
   cirugia: Cirugia[];
-  mateo;
-  valor;
+  public fecha;
+  public titulo;
+  public valor;
+  public n;
   constructor(private httpClient: HttpClient) {
     this.mostrar_cirugias().subscribe((data) => {
-      this.mateo = data[3]['fechaIngreso'].split("");
-      this.mateo = this.mateo[0] + this.mateo[1] + this.mateo[2] + this.mateo[3] + this.mateo[5] + this.mateo[6] + this.mateo[8] + this.mateo[9];
+      
       this.valor=data;
+     
+      for(var i = 0;i<this.valor.length;i++) { 
+        this.titulo = this.valor[i]['id']
+        this.fecha = this.valor[i]['fechaIngreso'].split("");
+        this.fecha = this.fecha[0] + this.fecha[1] + this.fecha[2] + this.fecha[3] + this.fecha[5] + this.fecha[6] + this.fecha[8] + this.fecha[9];
+        console.log("datos_"+this.valor.length);
+      }
     }, error => {
       console.log(error);
     });;    
-
+    console.log(this.fecha);
 
 
   }
@@ -37,23 +46,55 @@ export class CalendarComponent {
       {
         events:[
           {
-            title: "Evento 1",
-            //start: moment(this.mateo, "YYYYMMDD")
-            start: moment(this.mateo, "YYYYMMDD"),
-          },{
-            title: "Evento2",
-            //start: moment(this.mateo, "YYYYMMDD")
-            start: moment("20200416", "YYYYMMDD"),
-          },{
-            title: "Evento3",
-            //start: moment(this.mateo, "YYYYMMDD")
-            start: moment("20200417", "YYYYMMDD"),
+            title: "ID: "+this.titulo,
+            start: moment(this.fecha, "YYYYMMDD"),
+            color: '#2CAABE',
+            textColor: 'white'
+            
           },
+          
         ],
+        
+        selectable: true,
+        eventLimit: true,
+
+        titleFormat: 'MMMM YYYY',
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
+        buttonText: {
+            today: 'Hoy',
+            month: 'Mes',
+            week: 'Semana',
+            day: 'Día'
+        },
+        buttonIcons: {
+          prev: 'left-single-arrow',
+          next: 'right-single-arrow',
+          prevYear: 'left-double-arrow',
+          nextYear: 'right-double-arrow'
+        },
+        views: {
+            agenda: {
+              eventLimit: 2
+            }
+        },
+        allDaySlot: false,
+        slotDuration: moment.duration('00:15:00'),
+        slotLabelInterval: moment.duration('01:00:00'),
+        firstDay: 1,
+        selectHelper: true,
+        
+
+
       }
     );
   }
-
+  ngOnInit() {
+    //this.boton();
+  }
   mostrar_cirugias() {
     const headers = new HttpHeaders( {'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
     return this.httpClient.post(this.API_ENDPOINT + '/cirugia/getCirugias', {}, {headers: headers});
@@ -61,4 +102,6 @@ export class CalendarComponent {
 
   }
 }
+
+
 

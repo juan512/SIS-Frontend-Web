@@ -17,10 +17,10 @@ export class CirugiasService {
     return this.httpClient.post('http://177.222.52.26:8000/api/cirugia', cirugia, {headers: headers});
   }
 
-  update(id_paciente,cirugia){
-    console.log(cirugia);
+  update(id, cirugia_e){
+    console.log(cirugia_e);
     const headers = new HttpHeaders( {'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
-    return this.httpClient.put(this.API_ENDPOINT + '/user/'+id_paciente, cirugia, {headers: headers});
+    return this.httpClient.put(this.API_ENDPOINT + '/cirugia/'+id, cirugia_e, {headers: headers});
 
   }
 }

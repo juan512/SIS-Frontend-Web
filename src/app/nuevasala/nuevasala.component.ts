@@ -36,7 +36,7 @@ export class NuevasalaComponent implements OnInit {
     if(this.id>0){
       this.estado=0;
       console.log(this.id);
-    this.recdat().subscribe((data) => {
+      this.recdat().subscribe((data) => {
       console.log(data);
       //console.log(data[0]['name']);
       this.sala_e['nombre']=data[0]['nombre'];
@@ -64,7 +64,7 @@ export class NuevasalaComponent implements OnInit {
   }
 
   update(){
-    this.salasService.update(this.id,this.sala).subscribe((data) => {
+    this.salasService.update(this.id,this.sala_e).subscribe((data) => {
       alert (data['message']);
     }, error => {
         alert(error.error['message']);

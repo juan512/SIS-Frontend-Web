@@ -103,7 +103,7 @@ export class RegisterComponent implements OnInit {
     });
   } 
   update(){
-    this.usersService.update(this.id,this.user).subscribe((data) => {
+    this.usersService.update(this.id,this.user_e).subscribe((data) => {
       alert (data['message']);
     }, error => {
         alert(error.error['message']);
