@@ -35,7 +35,6 @@ export class AppComponent implements OnInit {
       //this.rol =this.activatedRoute.snapshot.params['id_rol'];
       this.nombre =this.activatedRoute.snapshot.params['name[0]'];
       this.id =this.activatedRoute.snapshot.params['id[0]'];
-      console.log("info: "+this.rol);
       if(this.id>0){
         this.estado=0;
       }else{
@@ -44,13 +43,10 @@ export class AppComponent implements OnInit {
 
       
 
-      this.funciona().subscribe((data) => {
-        console.log(data['name']);
-        
+      this.funciona().subscribe((data) => {        
         this.valor['name']=(data['name']);
         this.valor['id']=(data['id']);
         this.valor['id_rol']=(data['id_rol']);
-        console.log("hola"+this.valor.id_rol);
       }, error => {
         console.log(error);
       
