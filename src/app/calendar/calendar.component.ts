@@ -31,6 +31,7 @@ export class CalendarComponent {
 
   }
 
+
   boton() {
     $('#full-calendar').fullCalendar(
       {
@@ -60,3 +61,4 @@ export class CalendarComponent {
 
   }
 }
+

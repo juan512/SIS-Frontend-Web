@@ -22,6 +22,15 @@ export class RegisterComponent implements OnInit {
     'id_rol': '4',
   };
 
+  user_e:User={
+    //id: null,
+    'name': null,
+    'email': null,
+    'password': null,
+    'password_confirmation': null,
+    'id_rol': '4',
+  };
+
   id: any;
   editing: boolean = false;
   public users: User[];
@@ -36,20 +45,20 @@ export class RegisterComponent implements OnInit {
     this.id =this.activatedRoute.snapshot.params['id'];
     if(this.id>0){
       this.estado=0;
-    }else{
-      this.estado=1;
-    }
-    console.log(this.id);
+      console.log(this.id);
     this.recdat().subscribe((data) => {
       console.log(data);
-      console.log(data[0]['name']);
-      this.user['name']=data[0]['name'];
-      this.user['email']=data[0]['email'];
+      this.user_e['name']=data[0]['name'];
+      this.user_e['email']=data[0]['email'];
       this.datitos=data;
     }, error => {
       console.log(error);
     
     });;
+    }else{
+      this.estado=1;
+    }
+    
 
     /* this.id = this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
