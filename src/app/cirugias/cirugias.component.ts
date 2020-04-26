@@ -13,8 +13,8 @@ import { CirugiasService } from '../services/cirugias.service';
 export class CirugiasComponent implements OnInit {
 
   cirugia:Cirugia={
-    'id_paciente':'55',
-    'id_sala':'1',
+    'id_paciente':null,
+    'id_sala':null,
     'fechaIngreso':null,
     'fechaSalida':null,
     'fechaInternacion':null,
@@ -72,9 +72,10 @@ export class CirugiasComponent implements OnInit {
    }
 
   ngOnInit() {
-  }
+  } 
 
   registrarCirugia(){
+    console.log(this.cirugia+"asd");
     this.cirugiasService.save(this.cirugia).subscribe((data) => {
       alert (data['message']);
     }, error => {

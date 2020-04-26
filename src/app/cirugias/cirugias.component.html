@@ -19,8 +19,8 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text">Paciente</div>
                 </div>
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                  <option selected>Selecciona la sala que deseas reservar:</option>
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="cirugia.id_paciente">
+                  <option selected>Seleccione a su paciente:</option>
                   <option  *ngFor="let pacientes of pacientes" value={{pacientes.id}}>{{pacientes.name}}</option>
                 </select>
               </div>
@@ -32,7 +32,7 @@
                   <div class="input-group-text">Sala de cirugía</div>
                 </div>
 
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="cirugia.id_sala">
                   <option selected>Selecciona la sala que deseas reservar:</option>
 
                 
@@ -52,7 +52,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text">Fecha y hora de la cirugía</div>
                 </div>
-                <input  type="datetime-local" class="form-control" id="inlineFormInputGroup">
+                <input  type="date" class="form-control" id="inlineFormInputGroup" [(ngModel)]="cirugia.fechaIngreso">
               </div>
             </div>
 
@@ -61,17 +61,17 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text">Fecha y hora de fin de la cirugía</div>
                 </div>
-                <input  type="datetime-local" class="form-control" id="inlineFormInputGroup">
+                <input  type="date" class="form-control" id="inlineFormInputGroup" [(ngModel)]="cirugia.fechaSalida">
               </div>
             </div>
 
           </div>
           <h6>Tomar en cuenta que los horarios de salida serán aproximados, posteriormente se podrán editar en caso de inconvenientes</h6>
-          <br>
+          <br> 
 
           <div class="text-center">
             <button  *ngIf="id>0" (click)="update()" class="btn btn-info">Guardar</button>
-            <button *ngIf="estado==1" (click)="registrarUser()" class="btn btn-info">Registrar</button>
+            <button *ngIf="estado==1" (click)="registrarCirugia()" class="btn btn-info">Registrar</button>
 
           </div>
           <br>
