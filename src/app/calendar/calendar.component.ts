@@ -69,7 +69,7 @@ export class CalendarComponent {
     for(var i = 0;i<this.valor.length;i++) { 
       this.eventosData.push (
         {
-          "title": this.titulo[i],
+          "title": "ID: "+this.titulo[i],
           "start": this.fechaIn[i],
           "end": this.fechaSal[i]
         }
