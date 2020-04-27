@@ -14,7 +14,7 @@ export class SalasComponent implements OnInit {
   user: User[];
   constructor(private httpClient: HttpClient) {
     
-    this.funciona().subscribe((data) => {
+    this.obtener_salas().subscribe((data) => {
       console.log(data);
       this.valor=data;
     }, error => {
@@ -26,7 +26,7 @@ export class SalasComponent implements OnInit {
 
   ngOnInit() {
   } 
-  funciona(){
+  obtener_salas(){
     const headers = new HttpHeaders( {'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
     return this.httpClient.post(this.API_ENDPOINT + '/salas', {}, {headers: headers});
 

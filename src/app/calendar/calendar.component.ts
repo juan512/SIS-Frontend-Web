@@ -20,7 +20,6 @@ export class CalendarComponent {
   public fecha;
   public titulo;
   public valor;
-  public n;
   constructor(private httpClient: HttpClient) {
     this.mostrar_cirugias().subscribe((data) => {
       
@@ -55,6 +54,7 @@ export class CalendarComponent {
           
         ],
         
+        
         selectable: true,
         eventLimit: true,
 
@@ -64,6 +64,7 @@ export class CalendarComponent {
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
         },
+        
         buttonText: {
             today: 'Hoy',
             month: 'Mes',
@@ -76,6 +77,7 @@ export class CalendarComponent {
           prevYear: 'left-double-arrow',
           nextYear: 'right-double-arrow'
         },
+        
         views: {
             agenda: {
               eventLimit: 2

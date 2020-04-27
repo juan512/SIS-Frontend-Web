@@ -23,12 +23,12 @@
                   <option selected>Seleccione a su paciente:</option>
                   <option  *ngFor="let pacientes of pacientes" value={{pacientes.id}}>{{pacientes.name}}</option>
                 </select>
-                <select *ngIf="id==1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="cirugia.id_paciente">
+                <select *ngIf="estado==1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="cirugia.id_paciente">
                   <option selected>Seleccione a su paciente:</option>
                   <option  *ngFor="let pacientes of pacientes" value={{pacientes.id}}>{{pacientes.name}}</option>
                 </select>
               </div>
-            </div>
+            </div> 
 
             <div class="col">
               <div class="input-group mb-2">
@@ -41,7 +41,7 @@
                   <option  *ngFor="let salas of salas" value={{salas.id}}>{{salas.nombre}}</option>
                 </select>
 
-                <select *ngIf="id==1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="cirugia.id_sala">
+                <select *ngIf="estado==1" class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="cirugia.id_sala">
                   <option selected>Selecciona la sala que deseas reservar:</option>
                   <option  *ngFor="let salas of salas" value={{salas.id}}>{{salas.nombre}}</option>
                 </select>
@@ -59,7 +59,7 @@
                   <div class="input-group-text">Fecha y hora de la cirugía</div>
                 </div>
                 <input *ngIf="id>0" type="date" class="form-control" id="inlineFormInputGroup" [(ngModel)]="cirugia_e.fechaIngreso">
-                <input *ngIf="id==1" type="date" class="form-control" id="inlineFormInputGroup" [(ngModel)]="cirugia.fechaIngreso">
+                <input *ngIf="estado==1" type="date" class="form-control" id="inlineFormInputGroup" [(ngModel)]="cirugia.fechaIngreso">
               </div>
             </div>
 
@@ -69,7 +69,7 @@
                   <div class="input-group-text">Fecha y hora de fin de la cirugía</div>
                 </div>
                 <input *ngIf="id>0" type="date" class="form-control" id="inlineFormInputGroup" [(ngModel)]="cirugia_e.fechaSalida">
-                <input *ngIf="id==1" type="date" class="form-control" id="inlineFormInputGroup" [(ngModel)]="cirugia.fechaSalida">
+                <input *ngIf="estado==1" type="date" class="form-control" id="inlineFormInputGroup" [(ngModel)]="cirugia.fechaSalida">
               </div>
             </div>
 

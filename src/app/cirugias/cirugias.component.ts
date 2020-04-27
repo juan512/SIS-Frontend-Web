@@ -39,7 +39,7 @@ export class CirugiasComponent implements OnInit {
   public cirugias: Cirugia[];
   public datitos;
   public route;
-  public estado;
+  public estado=0;
   public salas;
   public pacientes;
   API_ENDPOINT= 'http://177.222.52.26:8000/api'
@@ -68,19 +68,21 @@ export class CirugiasComponent implements OnInit {
     if(this.id>0){
       this.estado=0;
       console.log(this.id); 
-    this.recdat().subscribe((data) => {
-      console.log(data);
-      this.cirugia_e['id_paciente']=data[0]['id_paciente'];
-      this.cirugia_e['id_sala']=data[0]['id_sala'];
-      this.cirugia_e['fechaIngreso']=data[0]['fechaIngreso'];
-      this.cirugia_e['fechaSalida']=data[0]['fechaSalida'];
-      this.datitos=data;
-    }, error => {
-      console.log(error);
+      this.recdat().subscribe((data) => {
+        console.log(data);
+        this.cirugia_e['id_paciente']=data[0]['id_paciente'];
+        this.cirugia_e['id_sala']=data[0]['id_sala'];
+        this.cirugia_e['fechaIngreso']=data[0]['fechaIngreso'];
+        this.cirugia_e['fechaSalida']=data[0]['fechaSalida'];
+        this.datitos=data;
+      }, error => {
+        console.log(error);
     
     });;
-    }else{
+    }
+    else{
       this.estado=1;
+      console.log(this.estado);
     }
     
    }

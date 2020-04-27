@@ -16,6 +16,10 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CirugiasComponent } from './cirugias/cirugias.component';
 import { SalasComponent } from './salas/salas.component';
 import { NuevasalaComponent } from './nuevasala/nuevasala.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { PersonalComponent } from './personal/personal.component';
+import { NuevopersonalComponent } from './nuevopersonal/nuevopersonal.component';
+import { PersonalCirugiaComponent } from './personal-cirugia/personal-cirugia.component'; 
 
 
 
@@ -30,7 +34,12 @@ const routes: Route[] = [
   {path: 'cirugias', component: CirugiasComponent},
   {path: 'cirugias/:id', component: CirugiasComponent},
   {path: 'salas', component: SalasComponent},
-  {path: 'nuevasala/:id', component: NuevasalaComponent}
+  {path: 'nuevasala', component: NuevasalaComponent},
+  {path: 'nuevasala/:id', component: NuevasalaComponent},
+  {path: 'personal', component: PersonalComponent},
+  {path: 'nuevopersonal/:id', component: NuevopersonalComponent},
+  {path: 'nuevopersonal', component: NuevopersonalComponent},
+  {path: 'personal_cirugia/:id', component: PersonalCirugiaComponent}
 ];
 
 @NgModule({
@@ -43,10 +52,14 @@ const routes: Route[] = [
     CalendarComponent,
     CirugiasComponent,
     SalasComponent,
-    NuevasalaComponent
+    NuevasalaComponent,
+    PersonalComponent,
+    NuevopersonalComponent,
+    PersonalCirugiaComponent
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     FormsModule,
