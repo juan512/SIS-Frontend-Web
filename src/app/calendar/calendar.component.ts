@@ -71,7 +71,9 @@ export class CalendarComponent {
         {
           "title": "ID: "+this.titulo[i],
           "start": this.fechaIn[i],
-          "end": this.fechaSal[i]
+          "end": this.fechaSal[i],
+          "color": '#2CAABE',
+          "textColor": 'white'
         }
       );
     }
