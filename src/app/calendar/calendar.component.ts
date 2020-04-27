@@ -18,41 +18,66 @@ export class CalendarComponent {
   API_ENDPOINT = 'http://177.222.52.26:8000/api'
   cirugia: Cirugia[];
   public fecha;
-  public titulo;
+  public titulo=[];
+  public fechaIn=[];
+  public fechaSal=[];
   public valor;
+  public eventosData;
+;
   constructor(private httpClient: HttpClient) {
+
+    
     this.mostrar_cirugias().subscribe((data) => {
       
       this.valor=data;
      
       for(var i = 0;i<this.valor.length;i++) { 
-        this.titulo = this.valor[i]['id']
+        this.titulo.push(this.valor[i]['id']);
         this.fecha = this.valor[i]['fechaIngreso'].split("");
         this.fecha = this.fecha[0] + this.fecha[1] + this.fecha[2] + this.fecha[3] + this.fecha[5] + this.fecha[6] + this.fecha[8] + this.fecha[9];
-        console.log("datos_"+this.valor.length);
+        this.fechaIn.push(this.fecha);
+
+        this.fecha = this.valor[i]['fechaSalida'].split("");
+        this.fecha = this.fecha[0] + this.fecha[1] + this.fecha[2] + this.fecha[3] + this.fecha[5] + this.fecha[6] + this.fecha[8] + this.fecha[9];
+        this.fechaSal.push(this.fecha);
+
       }
     }, error => {
       console.log(error);
     });;    
-    console.log(this.fecha);
 
 
   }
 
 
   boton() {
+    /*for(var i = 0;i<this.valor.length;i++) { 
+      console.log(this.fechaSal[i]);
+    }*/
+    
+
+    this.eventosData=[
+      {
+        title: "",
+        start: moment("", "YYYYMMDD"),
+        color: '#2CAABE',
+        textColor: 'white'
+        
+      }
+      
+    ];
+    for(var i = 0;i<this.valor.length;i++) { 
+      this.eventosData.push (
+        {
+          "title": this.titulo[i],
+          "start": this.fechaIn[i],
+          "end": this.fechaSal[i]
+        }
+      );
+    }
     $('#full-calendar').fullCalendar(
       {
-        events:[
-          {
-            title: "ID: "+this.titulo,
-            start: moment(this.fecha, "YYYYMMDD"),
-            color: '#2CAABE',
-            textColor: 'white'
-            
-          },
-          
-        ],
+        events:this.eventosData,
         
         
         selectable: true,

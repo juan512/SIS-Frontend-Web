@@ -24,7 +24,7 @@
             </thead>
         
             <tbody>
-              <tr *ngFor="let valors of valor | paginate: { itemsPerPage: 10, currentPage: p }">
+              <tr *ngFor="let valors of valor | paginate: { itemsPerPage: 10, currentPage: pageActual }">
                 <td class="text-center">{{valors.id}}</td>
                 <td class="text-center">{{valors.id_paciente}}</td>
                 <th class="text-center">{{valors.fechaIngreso}}</th>
@@ -35,7 +35,8 @@
             </tbody>
         
           </table>
-          
+          <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+
 
         </div> 
       </blockquote>
